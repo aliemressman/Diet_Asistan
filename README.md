@@ -14,22 +14,6 @@ Airtable API: Soru ve cevapların kayıt edilmesi için
 
 dotenv: Gizli bilgilerin .env dosyasında saklanması için
 
-Proje Yapısı
-
-diet_agent/
-|
-├── data/
-│ └── diet_dataset.json Soru-Cevap veri seti
-|
-├── database/
-│ └── airtable.py Airtable'a veri kaydeden yardımcı fonksiyon
-|
-├── main/
-│ └── main.py Ana uygulama (kullanıcı arayüzü ve benzerlik işlemleri)
-|
-├── .env Airtable API anahtarı ve ayarları (gizli bilgi)
-└── README.md
-
 Kurulum ve Çalıştırma
 
 Gerekli kütüphaneleri yükleyin:
