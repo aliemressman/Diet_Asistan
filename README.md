@@ -1,60 +1,34 @@
-Diyet Soru-Cevap Sistemi
+# 🥗 AI Diyet Asistanı (Diet Q&A System)
 
-Bu proje, önceden tanımlanmış diyet sorularına benzerlik analizi yaparak en uygun cevabı bulan basit bir Türkçe Soru-Cevap uygulamasıdır. Kullanıcıdan gelen sorular, veri kümesindeki sorularla karşılaştırılır ve en benzer cevabı döndürür. Ayrıca, bu soru-cevap eşleşmeleri Airtable üzerinde kayıt altına alınır.
+Bu proje, önceden tanımlanmış diyet ve sağlık sorularını **Doğal Dil İşleme (NLP)** ve **Vektör Benzerliği (Semantic Search)** teknolojilerini kullanarak analiz eden ve en uygun cevabı bulan yapay zeka destekli bir uygulamadır.
 
-Kullanılan Teknolojiler
+Sistem, kullanıcı sorularını kelime bazlı değil anlamsal olarak eşleştirir. Ayrıca, tüm soru-cevap etkileşimlerini analiz amacıyla **Airtable** veritabanına otomatik olarak kaydeder.
 
-Python
+## 🚀 Öne Çıkan Özellikler
+* **Anlamsal Arama:** `SentenceTransformer` kullanarak soruları sayısal vektörlere dönüştürür ve anlam benzerliğine bakar.
+* **Airtable Entegrasyonu:** Kullanıcı etkileşimlerini bulut tabanlı veritabanına loglar.
+* **Hızlı ve Etkili:** Pandas ve Vektör uzayı hesaplamalarıyla anlık cevap üretir.
 
-Pandas: JSON veri kümesini düzenli bir DataFrame’e dönüştürmek için
+## 🛠 Kullanılan Teknolojiler
+* **Python 3.x**
+* **Sentence-Transformers:** (`all-MiniLM-L6-v2`) Metin vektörleştirme için.
+* **Pandas:** Veri manipülasyonu.
+* **Airtable API:** Loglama servisi.
+* **Dotenv:** Güvenlik ve ortam değişkenleri.
 
-Sentence-Transformers: Cümleleri sayısal vektörlere dönüştürmek ve benzerlik analizi yapmak için
+## ⚙️ Kurulum ve Çalıştırma
 
-Airtable API: Soru ve cevapların kayıt edilmesi için
-
-dotenv: Gizli bilgilerin .env dosyasında saklanması için
-
-Kurulum ve Çalıştırma
-
-Gerekli kütüphaneleri yükleyin:
-
+**1. Gereksinimleri Yükleyin:**
+```bash
 pip install pandas sentence-transformers python-dotenv requests
-
-.env dosyası oluşturun:
-
-Proje dizinine .env adlı bir dosya ekleyin ve aşağıdaki bilgileri girin:
 
 AIRTABLE_TOKEN=your_airtable_token
 BASE_ID=your_airtable_base_id
 TABLE_NAME=Table 1
 
-Projeyi çalıştırın:
-
 python main/main.py
 
-Nasıl Çalışır
-
-Kullanıcının sorduğu soru, SentenceTransformer modeliyle sayısal bir vektöre çevrilir.
-
-Veri setindeki tüm sorularla benzerliği hesaplanır.
-
-En yüksek benzerlik puanı belli bir eşik değerini geçerse, cevap gösterilir.
-
-Soru ve cevap bilgileri Airtable'a kaydedilir.
-
-Örnek Kullanım
-
-Diyet Soru-Cevap Sistemine Hoş Geldiniz
-Çıkmak için 'q' yazın.
-
-Sorunuzu yazın: Gece yemek yemek kilo aldırır mı?
-
-En yakın soru: Gece yemek yemek kilo aldırır mı?
-Benzerlik skoru: 0.99
-Cevap: Gece geç saatlerde yemek yerseniz vücudunuzun sindirmesi zor olabilir ve bu kilo alımına neden olabilir.
-
-Notlar
-
-.env dosyasını asla GitHub gibi platformlarda paylaşmayın.
-
-Eğer veri eklenmiyorsa, Airtable tablonuzda doğru alan adlarının (sorular, cevaplar) olduğundan emin olun.
+Soru: Gece yemek yemek kilo aldırır mı?
+>> Benzerlik Skoru: 0.99
+>> Cevap: Gece geç saatlerde yemek yerseniz vücudunuzun sindirmesi zor olabilir...
+(Airtable'a kaydedildi ✅)
